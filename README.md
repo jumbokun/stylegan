@@ -46,11 +46,11 @@ Additional material can be found on Google Drive:
 | &boxv;&nbsp; &boxur;&nbsp; [high-quality-video-clips](https://drive.google.com/open?id=1NFO7_vH0t98J13ckJYFd7kuaTkyeRJ86) | Individual segments of the result video as high-quality MP4.
 | &boxvr;&nbsp; [ffhq-dataset](https://drive.google.com/open?id=1u2xu7bSrWxrbUxk-dT-UvEJq8IjdmNTP) | Raw data for the [Flickr-Faces-HQ dataset](https://github.com/NVlabs/ffhq-dataset).
 | &boxur;&nbsp; [networks](https://drive.google.com/open?id=1MASQyN5m0voPcx7-9K0r5gObhvvPups7) | Pre-trained networks as pickled instances of [dnnlib.tflib.Network](./dnnlib/tflib/network.py).
-| &ensp;&ensp; &boxvr;&nbsp; [stylegan-ffhq-1024x1024.pkl](https://drive.google.com/uc?id=1MEGjdvVpUsu1jB4zrXZN7Y4kBBOzizDQ) | StyleGAN trained with Flickr-Faces-HQ dataset at 1024&times;1024.
-| &ensp;&ensp; &boxvr;&nbsp; [stylegan-celebahq-1024x1024.pkl](https://drive.google.com/uc?id=1MGqJl28pN4t7SAtSrPdSRJSQJqahkzUf) | StyleGAN trained with CelebA-HQ dataset at 1024&times;1024.
-| &ensp;&ensp; &boxvr;&nbsp; [stylegan-bedrooms-256x256.pkl](https://drive.google.com/uc?id=1MOSKeGF0FJcivpBI7s63V9YHloUTORiF) | StyleGAN trained with LSUN Bedroom dataset at 256&times;256.
-| &ensp;&ensp; &boxvr;&nbsp; [stylegan-cars-512x384.pkl](https://drive.google.com/uc?id=1MJ6iCfNtMIRicihwRorsM3b7mmtmK9c3) | StyleGAN trained with LSUN Car dataset at 512&times;384.
-| &ensp;&ensp; &boxvr;&nbsp; [stylegan-cats-256x256.pkl](https://drive.google.com/uc?id=1MQywl0FNt6lHu8E_EUqnRbviagS7fbiJ) | StyleGAN trained with LSUN Cat dataset at 256&times;256.
+| &ensp;&ensp; &boxvr;&nbsp; [stylegan-ffhq-1024x1024.pkl](https://nvlabs-fi-cdn.nvidia.com/stylegan/networks/karras2019stylegan-ffhq-1024x1024.pkl) | StyleGAN trained with Flickr-Faces-HQ dataset at 1024&times;1024.
+| &ensp;&ensp; &boxvr;&nbsp; [stylegan-celebahq-1024x1024.pkl](https://nvlabs-fi-cdn.nvidia.com/stylegan/networks/karras2019stylegan-celebahq-1024x1024.pkl) | StyleGAN trained with CelebA-HQ dataset at 1024&times;1024.
+| &ensp;&ensp; &boxvr;&nbsp; [stylegan-bedrooms-256x256.pkl](https://nvlabs-fi-cdn.nvidia.com/stylegan/networks/karras2019stylegan-bedrooms-256x256.pkl) | StyleGAN trained with LSUN Bedroom dataset at 256&times;256.
+| &ensp;&ensp; &boxvr;&nbsp; [stylegan-cars-512x384.pkl](https://nvlabs-fi-cdn.nvidia.com/stylegan/networks/karras2019stylegan-cars-512x384.pkl) | StyleGAN trained with LSUN Car dataset at 512&times;384.
+| &ensp;&ensp; &boxvr;&nbsp; [stylegan-cats-256x256.pkl](https://nvlabs-fi-cdn.nvidia.com/stylegan/networks/karras2019stylegan-cats-256x256.pkl) | StyleGAN trained with LSUN Cat dataset at 256&times;256.
 | &ensp;&ensp; &boxur;&nbsp; [metrics](https://drive.google.com/open?id=1MvYdWCBuMfnoYGptRH-AgKLbPTsIQLhl) | Auxiliary networks for the quality and disentanglement metrics.
 | &ensp;&ensp; &ensp;&ensp; &boxvr;&nbsp; [inception_v3_features.pkl](https://drive.google.com/uc?id=1MzTY44rLToO5APn8TZmfR7_ENSe5aZUn) | Standard [Inception-v3](https://arxiv.org/abs/1512.00567) classifier that outputs a raw feature vector.
 | &ensp;&ensp; &ensp;&ensp; &boxvr;&nbsp; [vgg16_zhang_perceptual.pkl](https://drive.google.com/uc?id=1N2-m9qszOeVC9Tq77WxsLnuWwOedQiD2) | Standard [LPIPS](https://arxiv.org/abs/1801.03924) metric to estimate perceptual similarity.
@@ -83,7 +83,7 @@ A minimal example of using a pre-trained StyleGAN generator is given in [pretrai
 
 ```
 > python pretrained_example.py
-Downloading https://drive.google.com/uc?id=1MEGjdvVpUsu1jB4zrXZN7Y4kBBOzizDQ .... done
+Downloading https://nvlabs-fi-cdn.nvidia.com/stylegan/networks/karras2019stylegan-ffhq-1024x1024.pkl .... done
 
 Gs                              Params    OutputShape          WeightShape
 ---                             ---       ---                  ---
@@ -110,11 +110,11 @@ results/figure11-uncurated-cars.png     # https://drive.google.com/uc?id=1UO-4Jt
 results/figure12-uncurated-cats.png     # https://drive.google.com/uc?id=1USnJc14prlu3QAYxstrtlfXC9sDWPA-W
 ```
 
-The pre-trained networks are stored as standard pickle files on Google Drive:
+The pre-trained networks are stored as standard pickle files:
 
 ```
 # Load pre-trained network.
-url = 'https://drive.google.com/uc?id=1MEGjdvVpUsu1jB4zrXZN7Y4kBBOzizDQ' # karras2019stylegan-ffhq-1024x1024.pkl
+url = 'https://nvlabs-fi-cdn.nvidia.com/stylegan/networks/karras2019stylegan-ffhq-1024x1024.pkl'
 with dnnlib.util.open_url(url, cache_dir=config.cache_dir) as f:
     _G, _D, Gs = pickle.load(f)
     # _G = Instantaneous snapshot of the generator. Mainly useful for resuming a previous training run.
